@@ -10,6 +10,7 @@ Inspired by [Andrej Karpathy's llmwiki concept](https://gist.github.com/karpathy
 - **Updates itself.** Every session ends with `/end-session`, which consolidates what happened into projects, decisions, learnings, and a short-term memory file that the next session starts from.
 - **Tracks weekly goals.** Set goals on Monday (`/goals open 3 PRs`), and your dailies update the counters automatically. Friday's `/weekly` scores the week.
 - **Digests meetings.** Paste a transcript into `/meeting`: the original is stored untouched, and the brain generates summary, decisions, action items, insights, and updates every person and project involved.
+- **Compounds knowledge.** Feed articles, papers, or notes into `/learn`: sources are preserved immutably, and knowledge is compiled into one note per concept — new sources enrich existing notes, contradictions get flagged instead of silently overwritten. `/lint` keeps the graph healthy.
 
 ## Quick start
 
@@ -30,6 +31,7 @@ Inspired by [Andrej Karpathy's llmwiki concept](https://gist.github.com/karpathy
 | `30-meetings/` | Meeting notes; `raw/` holds immutable transcripts |
 | `40-tutorials/` | Runbooks and step-by-step guides |
 | `50-people/` | One note per person, with interactions and commitments |
+| `70-knowledge/` | Knowledge base: one note per concept; `raw/` holds immutable sources |
 | `60-journal/` | `dailies/`, `weeks/` (goals + summary), `quarters/` (retrospectives) |
 | `90-memory/` | Current state, about-me, decisions, learnings |
 | `templates/` | Note templates (used automatically by the commands) |
@@ -45,6 +47,8 @@ Inspired by [Andrej Karpathy's llmwiki concept](https://gist.github.com/karpathy
 | `/project <name>` | Create or update a project |
 | `/idea <text>` | Capture an idea |
 | `/tutorial <subject>` | Create a runbook |
+| `/learn <source>` | Compile a source into the knowledge base |
+| `/lint` | Audit links, orphans, and contradictions |
 | `/briefing` | Daily briefing: goals, open items, focus |
 | `/goals` | Set / update / check week goals |
 | `/question <q>` | Search the vault, answer with sources |
@@ -68,6 +72,7 @@ mkdir -p ~/.claude/commands && cp ~/2ndBrain/global-commands/brain-*.md ~/.claud
 | Morning | `/briefing` |
 | During the day | `/inbox <anything>` |
 | After a meeting | `/meeting` |
+| Read something worth keeping | `/learn <link, text, or file>` |
 | End of day | `/daily` |
 | End of a work session | `/end-session` |
 | Friday | `/weekly` |
