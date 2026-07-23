@@ -10,3 +10,5 @@ Process every item in `00-inbox/`.
 4. When ambiguous, ask before moving.
 5. After migrating the content, delete the inbox file.
 6. Summarize at the end: what went where.
+
+Critical rule: an item related to a project does NOT go into `10-projects/` — it goes to its TYPE's folder, and the project gets a wikilink in its "Links" section + a log entry. `10-projects/` contains only each project's note.
